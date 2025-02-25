@@ -34,18 +34,26 @@ def all_in_one(s_list):
 
 def count_items(s_list):
   cnt_itm = 0
+  tofind = input("What item? ")
   for i in range(0,len(s_list)):
-    item = ""
+    item = tofind
     for j in range(0,len(s_list[i])):
-      item = s_list[i][j]
-      for opt in s_list[i]:
-        if opt == item:
+        if tofind in s_list[i][j]:
           cnt_itm += 1
   return(cnt_itm)
 
-# def drink_more_milk(s_list):
+def if_you_give_a_mouse_a_cookie(s_list):
+  for i in range(0,len(s_list)):
+    for j in range(len(s_list[i])):
+      if "milk" in s_list[i][j]:
+        s_list[i][j] += " and cookies"
+  return(s_list)
 
-# def if_you_give_a_mouse_a_cookie(s_list):
+def drink_more_milk(s_list):
+  for i in range(len(s_list)):
+    if "milk" not in s_list[i]:
+      s_list.append('milk')
+  return(s_list)
 
 
 # User Inputs
@@ -56,3 +64,11 @@ elif User_inp == "view item":
   print(print_item(shopping_cart))
 elif User_inp == "view list":
   print(print_list(shopping_cart))
+elif User_inp == "all in one":
+  print(all_in_one(shopping_cart))
+elif User_inp == "count items":
+  print(count_items(shopping_cart))
+elif User_inp == "more milk":
+  print(drink_more_milk(shopping_cart))
+elif User_inp == "cookies":
+  print(if_you_give_a_mouse_a_cookie(shopping_cart))
